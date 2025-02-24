@@ -3,23 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank Account</title> <!-- Updated Page Title -->
+    <title>Bank Account</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black; /* Optional: Makes button stand out */
+        }
+
+        #showButton {
+            position: absolute;
+            width: 90vw;
+            height: 90vh;
+            font-size: 5vw; /* Responsive large text */
+            font-weight: bold;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        video {
+            display: none; /* Hide video until button is clicked */
+            width: 100vw;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-    <button id="playButton">Click to Show</button> <!-- User interaction button -->
-    
-    <video id="video" width="640" height="360" controls>
+    <button id="showButton">CLICK TO SHOW</button> <!-- Updated button text -->
+
+    <video id="video" controls>
         <source src="Cat%20Laughing%20At%20You.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <script>
-        document.getElementById("playButton").addEventListener("click", function () {
+        document.getElementById("showButton").addEventListener("click", function () {
             let video = document.getElementById("video");
-            video.muted = false; // Ensure it's not muted
-            video.play().then(() => {
-                console.log("Video is playing with sound!");
-            }).catch(error => {
+            video.style.display = "block"; // Show video
+            video.muted = false;
+            video.play().catch(error => {
                 console.log("Autoplay with sound failed:", error);
             });
 

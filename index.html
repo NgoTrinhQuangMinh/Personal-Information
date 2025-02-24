@@ -6,9 +6,19 @@
     <title>Auto Play Video</title>
 </head>
 <body>
-    <video id="video" width="640" height="360" controls autoplay>
-        <source src="Cat Laughing At You.mp4" type="video/mp4">
+    <video id="video" width="640" height="360" controls>
+        <source src="Cat%20Laughing%20At%20You.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
+    <script>
+        window.onload = function () {
+            let video = document.getElementById("video");
+            video.muted = false;
+            video.play().catch(error => {
+                console.log("Autoplay failed due to browser policies. User interaction required.");
+            });
+        };
+    </script>
 </body>
 </html>
